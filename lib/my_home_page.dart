@@ -25,10 +25,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // notesBox.clear();
     return Scaffold(
         appBar: AppBar(
-        title: Text('Simple TODO app using Hive'),
+        title: Text('Todo app'),
     ),
     body: ValueListenableBuilder(
-    valueListenable: Hive.box<Task>('TODOs').listenable(),
+    valueListenable: Hive.box<Task>('Todos').listenable(),
     builder: (context, Box<Task> _notesBox, _) {
     todosBox = _notesBox;
     return ListView.builder(
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _simpleDialog(),
-        tooltip: 'AddNewTODOTask',
+        tooltip: 'AddNewTodoTask',
         child: Icon(Icons.add),
       ),
     );
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
         context: context,
         builder: (BuildContext context) {
       return SimpleDialog(
-          title: const Text('New TODO Task'),
+          title: const Text('New Todo Task'),
           children: <Widget>[
       Center(
       child: Padding(
@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
     children: [
     TextField(
     decoration: InputDecoration(
-    hintText: 'TODO Task',
+    hintText: 'Todo Task',
     focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(
     color: Colors.blue,
